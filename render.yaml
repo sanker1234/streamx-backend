@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: streamx-backend
+    env: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    autoDeploy: true
+    envVars:
+      - key: PORT
+        value: 3000
+      - key: TMDB_API_KEY
+        sync: false

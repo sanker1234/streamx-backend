@@ -1,0 +1,8 @@
+[
+  { "name": "anikoto", "displayName": "Server 1", "enabled": true },
+  { "name": "anix", "displayName": "Server 2", "enabled": true },
+  { "name": "anify", "displayName": "Server 3", "enabled": true },
+  { "name": "animepahe", "displayName": "Server 4", "enabled": true },
+  { "name": "crunchyroll", "displayName": "Server 5", "enabled": true },
+  { "name": "bilibili", "displayName": "Server 6", "enabled": true }
+]
