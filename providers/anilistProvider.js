@@ -88,6 +88,7 @@ export function mapAniListMedia(item, mediaType = "anime") {
     id: item.id,
     idMal: item.idMal,
     media: mediaType,
+    format: item.format || "TV",
     title: title,
     name: title,
     overview: item.description ? item.description.replace(/<[^>]*>/g, "") : "",
