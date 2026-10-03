@@ -235,6 +235,18 @@ export async function verifyAllServers() {
     animepahe: () => verifyConsumetProvider("animepahe"),
     crunchyroll: () => verifyConsumetProvider("crunchyroll"),
     bilibili: () => verifyConsumetProvider("bilibili"),
+    videm: () => verifyUrl("https://videm.xyz"),
+    vidbolt: () => verifyUrl("https://vidbolt.pro"),
+    codespecters: () => verifyUrl("https://api.codespecters.com"),
+    streamflizo: async () => {
+      try {
+        const res = await axios.get("https://streamflizoapi.top/stream/tmdb/27205", { timeout: 6000 });
+        if (res.data && !res.data.includes("Invalid Request")) return { available: true, errorType: null };
+        return { available: false, errorType: "400_invalid_request" };
+      } catch (e) {
+        return { available: false, errorType: getErrorType(e) };
+      }
+    },
     twoembed: verifyTwoEmbed,
     vidlink: verifyVidLink,
     netmirror: verifyNetMirror,
@@ -276,6 +288,6 @@ export function getAvailableServersList(category = "anime") {
   if (category === "anime") {
     return ["server1", "server2", "server3", "server4", "server5", "server6", "server7", "server8", "server9"];
   }
-  return ["videm", "vidbolt", "codespecters", "streamflizo", "cinesrc", "filmu", "vidcore", "vidsrcsbs", "smashystream", "twoembed", "embedmaster"];
+  return ["videm", "vidbolt", "vidlink", "codespecters", "cinesrc", "filmu", "vidcore", "vidsrcsbs", "smashystream", "twoembed", "embedmaster"];
 }
 

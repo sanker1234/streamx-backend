@@ -60,15 +60,16 @@ export async function getStreamingSources(req, res) {
     const order = [
       "videm",
       "vidbolt",
+      "vidlink",
       "codespecters",
-      "streamflizo",
       "cinesrc",
       "filmu",
       "vidcore",
       "vidsrcsbs",
       "smashystream",
       "twoembed",
-      "embedmaster"
+      "embedmaster",
+      "streamflizo"
     ];
     const priorityList = [requestedServer, ...order.filter(s => s !== requestedServer)];
 
