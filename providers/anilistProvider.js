@@ -30,6 +30,8 @@ const MEDIA_FRAGMENT = `
   genres
   episodes
   status
+  format
+  countryOfOrigin
 `;
 
 /**
@@ -84,11 +86,15 @@ export function mapAniListMedia(item, mediaType = "anime") {
     releaseDate = `${item.startDate.year}-${m}-${d}`;
   }
 
+  const origin = item.countryOfOrigin || "";
+  const resolvedMedia = (origin === "CN" || origin === "TW") ? "donghua" : (mediaType || "anime");
+
   return {
     id: item.id,
     idMal: item.idMal,
-    media: mediaType,
+    media: resolvedMedia,
     format: item.format || "TV",
+    countryOfOrigin: origin,
     title: title,
     name: title,
     overview: item.description ? item.description.replace(/<[^>]*>/g, "") : "",
