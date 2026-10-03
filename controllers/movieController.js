@@ -43,7 +43,7 @@ export async function getStreamingSources(req, res) {
       return res.status(400).json({ success: false, error: "ID and media are required" });
     }
 
-    const requestedServer = provider || "videm";
+    const requestedServer = provider || "vidlink";
     const seasonVal = season ? parseInt(season) : undefined;
     const episodeVal = episode ? parseInt(episode) : undefined;
 
@@ -58,14 +58,14 @@ export async function getStreamingSources(req, res) {
 
     // Build the fallback chain
     const order = [
-      "videm",
-      "vidbolt",
       "vidlink",
+      "vidbolt",
       "codespecters",
       "cinesrc",
       "filmu",
       "vidcore",
       "vidsrcsbs",
+      "videm",
       "smashystream",
       "twoembed",
       "embedmaster",
