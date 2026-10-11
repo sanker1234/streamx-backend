@@ -32,6 +32,10 @@ const MEDIA_FRAGMENT = `
   status
   format
   countryOfOrigin
+  trailer {
+    id
+    site
+  }
 `;
 
 /**
@@ -118,6 +122,9 @@ export function mapAniListMedia(item, mediaType = "anime") {
       userPreferred: item.title?.userPreferred || "",
     },
     synonyms: item.synonyms || [],
+    trailer: (item.trailer?.site?.toLowerCase() === "youtube" && item.trailer?.id)
+      ? { site: "YouTube", key: item.trailer.id }
+      : (item.trailer?.key ? item.trailer : null),
   };
 }
 
